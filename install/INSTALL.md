@@ -28,7 +28,7 @@ This is a feature that will be solved in a future release and contained in the '
 file. Until further notice, the following line must be added for each channel under the
 <!-- List Channels --> comment.
 
-* <li><a href="#irc-channel" data-function="view" data-channel="irc-channel">#irc-channel</a></li>
+- &lt;li&gt;&lt;a href=&quot;#irc-channel&quot; data-function=&quot;view&quot; data-channel=&quot;irc-channel&quot;&gt;#irc-channel&lt;/a&gt;&lt;/li&gt;
 
 Replace all instances of 'irc-channel' with your actual channel without prefixing the hash
 tag.
