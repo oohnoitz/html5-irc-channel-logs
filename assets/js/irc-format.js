@@ -1,17 +1,17 @@
 function _format(input) {
-	var newText		= '';
-	var input			= _escape(_sanitize(input));
-	var pageF			= 'black';
-	var pageB			= 'white';
-	var length		= input.length;
-	var bold			= false;
-	var color			= false;
-	var italics		= false;
-	var reverse		= false;
-	var underline	= false;
-	var colorF		= '';
-	var colorB		= '';
-	
+	var newText = '';
+	var input = _escape(_sanitize(input));
+	var pageF = 'black';
+	var pageB = 'white';
+	var length = input.length;
+	var bold = false;
+	var color = false;
+	var italics = false;
+	var reverse = false;
+	var underline = false;
+	var colorF = '';
+	var colorB = '';
+
 	// Format String
 	for (i = 0; i < length; i++) {
 		switch(input.charAt(i))
@@ -23,10 +23,10 @@ function _format(input) {
 				}
 				colorF = '';
 				colorB = '';
-				
+
 				if ((parseInt(input.charAt(i+1)) >= 0) && (parseInt(input.charAt(i+1)) <= 9)) {
 					color = true;
-					
+
 					if ((parseInt(input.charAt(++i+1)) >= 0) && (parseInt(input.charAt(i+1)) <= 9)) {
 						colorF = _colors(parseInt(input.charAt(i)) * 10 + parseInt(input.charAt(++i)));
 					} else {
@@ -46,7 +46,7 @@ function _format(input) {
 					newText += '">';
 				}
 				break;
-			
+
 			case String.fromCharCode(2):
 				if (bold) {
 					newText += '</b>';
@@ -56,7 +56,7 @@ function _format(input) {
 					bold = true;
 				}
 				break;
-			
+
 			case String.fromCharCode(4):
 				if (italics) {
 					newText += '</i>';
@@ -66,7 +66,7 @@ function _format(input) {
 					italics = true;
 				}
 				break;
-			
+
 			case String.fromCharCode(22):
 				if (reverse) {
 					newText += '</span>';
@@ -76,7 +76,7 @@ function _format(input) {
 					reverse = true;
 				}
 				break;
-			
+
 			case String.fromCharCode(31):
 				if (underline) {
 					newText += '</u>';
@@ -86,7 +86,7 @@ function _format(input) {
 					underline = true;
 				}
 				break;
-			
+
 			case String.fromCharCode(15):
 				if (underline) {
 					newText += '</u>';
@@ -109,19 +109,19 @@ function _format(input) {
 					bold = false;
 				}
 				break;
-			
+
 			default:
 				newText += input.charAt(i);
 		}
 	}
-	
+
 	// Reset All Codes
-	if (underline)	newText += '</u>';
-	if (reverse)		newText += '</span>';
-	if (italics)		newText += '</i>';
-	if (color)			newText += '</span>';
-	if (bold)				newText += '</b>';
-	
+	if (underline) newText += '</u>';
+	if (reverse) newText += '</span>';
+	if (italics) newText += '</i>';
+	if (color) newText += '</span>';
+	if (bold) newText += '</b>';
+
 	// Return Formatted String
 	return newText;
 }
@@ -130,22 +130,22 @@ function _format(input) {
 function _colors(number) {
 	number = parseInt(number);
 	switch (number) {
-		case 0:		return 'white';
-		case 1:		return 'black';
-		case 2:		return 'navy';
-		case 3:		return 'green';
-		case 4:		return 'red';
-		case 5:		return 'maroon';
-		case 6:		return 'purple';
-		case 7:		return 'olive';
-		case 8:		return 'yellow';
-		case 9:		return 'lime';
-		case 10:	return 'teal';
-		case 11:	return 'aqua';
-		case 12:	return 'blue';
-		case 13:	return 'fuchsia';
-		case 14:	return 'gray';
-		default:	return 'silver';
+		case 0: return 'white';
+		case 1: return 'black';
+		case 2: return 'navy';
+		case 3: return 'green';
+		case 4: return 'red';
+		case 5: return 'maroon';
+		case 6: return 'purple';
+		case 7: return 'olive';
+		case 8: return 'yellow';
+		case 9: return 'lime';
+		case 10: return 'teal';
+		case 11: return 'aqua';
+		case 12: return 'blue';
+		case 13: return 'fuchsia';
+		case 14: return 'gray';
+		default: return 'silver';
 	}
 }
 
@@ -163,19 +163,19 @@ function _escape(string) {
 function _sanitize(string) {
 	return string
 		.replace(//g, "01")
-		.replace(//g, "01") 
+		.replace(//g, "01")
 		.replace(/:/g, "01:")
 		.replace(/([0-9])\,([0-9])([0-9])/g, "0\$1,\$2\$3")
 		.replace(/([0-9])\,([0-9])/g, "0\$1,\$2")
 		.replace(/([0-9])([a-zA-Z>\.<\* ])/gi, "0\$1\$2")
 		.replace(/([a-zA-Z><\* ])/i, "01\$1")
-		.replace(/, /g, " ,"); 
+		.replace(/, /g, " ,");
 }
 
 // LOG2HTML
 function _log(data) {
 	var output = '<tr id="' + data.id + '"><td class="log TIMESTAMP"><time datetime="' + data.timestamp_w3c + '">' + data.timestamp + '</time></td>';
-			
+
 	switch (data.type) {
 		case 'MESSAGE':
 			output += '<td class="log ' + data.type + '">&lt;<span class="nick" onclick="userInfo(\'' + data.nick + '\')">' + data.nick + '</span>&gt; ' + _format(data.text) + '</td>';

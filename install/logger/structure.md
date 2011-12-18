@@ -33,13 +33,23 @@ the type of raw input (e.g. MESSAGE, NOTICE, JOIN, PART, TOPIC, KICK, MODE, CTCP
 text
 ----
 MESSAGE -> text
+
 NOTICE -> text
+
 JOIN -> null
+
 PART -> text
+
 TOPIC -> text
+
 KICK -> victim text
+
 MODE -> mode nick
+
 CTCP -> command: text (the colon is required)
+
 CTCP-REPLY -> command: text (the colon is required)
+
 SPLIT -> null
+
 REJOIN -> null
