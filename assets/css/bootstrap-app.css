@@ -1,10 +1,10 @@
 table { font-family: monospace !important; }
+time { color: grey; }
 #alert { text-align: center; }
 .divider { background-color: silver; }
 
 .log.TIMESTAMP	{ color: grey; }
 .log.MESSAGE	{ color: black; }
-.log.NOTICE	{ }
 .log.CTCP	{ color: purple; }
 .log.MODE	{ color: green; }
 .log.JOIN	{ color: green; }

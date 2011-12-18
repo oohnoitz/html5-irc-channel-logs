@@ -3,11 +3,11 @@
 	<head>
 		<meta charset="utf-8">
 		<title>CHANNEL LOG</title>
-		
+
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		
+
 		<!-- CSS -->
 		<link rel="stylesheet" type="text/css" media="screen" href="assets/css/bootstrap.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="assets/css/bootstrap-app.css" />
@@ -16,16 +16,16 @@
 				padding-top: 60px;
 			}
 		</style>
-		
+
 		<!-- JS -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 		<script type="text/javascript" src="assets/js/jquery-localize.js"></script>
-		
+
 		<script type="text/javascript" src="assets/js/bootstrap.js"></script>
 		<script type="text/javascript" src="assets/js/irc-format.js"></script>
 		<script type="text/javascript" src="assets/js/irc-log.js"></script>
 	</head>
-	
+
 	<body>
 		<!-- Top Navigation -->
 		<div class="topbar">
@@ -43,28 +43,30 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- Container -->
 		<div class="container">
 			<div class="content">
-				<div id="topic"></div>
-				<div id="users"></div>
 				<table id="log"><table>
 				<div id="alert"></div>
-				
+
 				<footer>
 					<p>&nbsp; &copy; TEAM SEPTiCORE 2011</p>
 				</footer>
 			</div>
 		</div>
-		
+
 		<!-- Modal -->
 		<div id="modal" class="modal hide fade in">
 			<div class="modal-header">
 				<a href="#" class="close">&times;</a>
 				<h3></h3>
 			</div>
-			<div class="modal-body"></div>
+			<div class="modal-body">
+				<div class="user-lastseen"></div>
+				<div class="user-lastspoke"></div>
+				<div class="user-channels"></div>
+			</div>
 		</div>
 	</body>
 </html>
